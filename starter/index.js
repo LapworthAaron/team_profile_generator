@@ -14,6 +14,10 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
 // TODO: init function that calls manager func
+init = () => {
+    managerFunc();
+}
+
 
 // TODO: manager func that calls inquirer then calls holding menu
 managerFunc = () => {
@@ -83,3 +87,6 @@ managerFunc = () => {
 // TODO: intern func that calls inquirer for intern then holding menu
 
 // TODO: render func that calls the render jazz
+
+
+init();
