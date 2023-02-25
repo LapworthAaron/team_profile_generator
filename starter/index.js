@@ -20,6 +20,7 @@ init = () => {
 
 
 // TODO: manager func that calls inquirer then calls holding menu
+// TODO: pull the 3 common questions out as a object, so they can be resused in all funcs
 managerFunc = () => {
     let theManager = {};
 
@@ -64,7 +65,6 @@ managerFunc = () => {
                 message: 'What is your office number?',
                 name: 'office',
                 validate(office) {
-                    //simple validation, as emails are super complicated to validate
                     if(/[a-zA-Z]+$/.test(office)) {
                         return "Please only use numbers"
                     }
@@ -98,9 +98,9 @@ menuFunc = () => {
         .then((response) => {
             if (response.option == "Add an Engineer") {
                 engineerFunc();
-            } else if (response.option == "Add an Intern") {
-                // internFunc();
-                console.log(response.option);
+            } else if (response.option == "Add an intern") {
+                internFunc();
+                // console.log(response.option);
             } else {
                 // render();
                 console.log(response.option);
@@ -156,7 +156,6 @@ engineerFunc = () => {
                 message: 'What is your github username?',
                 name: 'github',
                 validate(github) {
-                    //simple validation, as emails are super complicated to validate
                     if(!/[a-zA-Z]+$/.test(github)) {
                         return "Please only use numbers"
                     }
@@ -174,7 +173,64 @@ engineerFunc = () => {
 
 
 // TODO: intern func that calls inquirer for intern then holding menu
+internFunc = () => {
+    let theIntern = {};
 
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What is your name?',
+                name: 'name',
+                validate(name) {
+                    if(!/[a-zA-Z]+$/.test(name)) {
+                        return "Please only use letters";
+                    }
+                    return true
+                }
+            },
+            {
+                type: 'input',
+                message: 'What is your employee ID?',
+                name: 'id',
+                validate(id) {
+                    if(/[a-zA-Z]+$/.test(id)) {
+                        return "Please only use numbers";
+                    }
+                    return true
+                }
+            },
+            {
+                type: 'input',
+                message: 'What is your email address?',
+                name: 'email',
+                validate(email) {
+                    //simple validation, as emails are super complicated to validate
+                    if(!/[@]/.test(email) || !/[.]/.test(email)) {
+                        return "Please enter a valid email address"
+                    }
+                    return true
+                }
+            },
+            {
+                type: 'input',
+                message: 'What school do you attend?',
+                name: 'school',
+                validate(school) {
+                    if(!/[a-zA-Z]+$/.test(school)) {
+                        return "Please only use numbers"
+                    }
+                    return true
+                }
+            }
+        ])
+        .then((response) => {
+            theIntern = new Intern(response.name,response.id,response.email,response.school);
+            console.log('Success!');
+            console.log(theIntern);
+            menuFunc();
+        });
+}
 // TODO: render func that calls the render jazz
 
 
