@@ -10,11 +10,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 // TODO: render
 // TODO: dynamic instantiation object names
 
+let team = [];
 
 // init function that calls manager func
 init = () => {
@@ -106,17 +106,13 @@ const menuQ = {
     ]
 };
 
-
 // manager func that calls inquirer then calls holding menu
 managerFunc = () => {
-    let theManager = {};
-
     inquirer
         .prompt([nameQ, idQ, emailQ, officeQ])
         .then((response) => {
-            theManager = new Manager(response.name,response.id,response.email,response.office);
-            console.log('Success!');
-            console.log(theManager);
+            const theManager = new Manager(response.name,response.id,response.email,response.office);
+            team.push(theManager);
             menuFunc();
         });
 }
@@ -130,27 +126,22 @@ menuFunc = () => {
                 engineerFunc();
             } else if (response.option == "Add an intern") {
                 internFunc();
-                // console.log(response.option);
             } else {
-                // render();
-                console.log(response.option);
+                render(team);
+                console.log(render(team));
             }
         }
 
         )
 }
 
-
 // engineer func that calls inquirer for engineer then holding menu
 engineerFunc = () => {
-    let theEngineer = {};
-
     inquirer
         .prompt([nameQ, idQ, emailQ, githubQ])
         .then((response) => {
-            theEngineer = new Engineer(response.name,response.id,response.email,response.github);
-            console.log('Success!');
-            console.log(theEngineer);
+            const theEngineer = new Engineer(response.name,response.id,response.email,response.github);
+            team.push(theEngineer);
             menuFunc();
         });
 }
@@ -158,14 +149,11 @@ engineerFunc = () => {
 
 // intern func that calls inquirer for intern then holding menu
 internFunc = () => {
-    let theIntern = {};
-
     inquirer
         .prompt([nameQ, idQ, emailQ, schoolQ])
         .then((response) => {
-            theIntern = new Intern(response.name,response.id,response.email,response.school);
-            console.log('Success!');
-            console.log(theIntern);
+            const theIntern = new Intern(response.name,response.id,response.email,response.school);
+            team.push(theIntern);
             menuFunc();
         });
 }
