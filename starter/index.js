@@ -117,7 +117,7 @@ managerFunc = () => {
         });
 }
 
-// TODO: holding menu that display add engineer etc..., then calls the relevant function below
+// holding menu that display add engineer etc..., then calls the relevant function below
 menuFunc = () => {
     inquirer
         .prompt([menuQ])
@@ -127,8 +127,7 @@ menuFunc = () => {
             } else if (response.option == "Add an intern") {
                 internFunc();
             } else {
-                render(team);
-                console.log(render(team));
+                writeFile(outputPath, OUTPUT_DIR,render(team));
             }
         }
 
@@ -158,7 +157,13 @@ internFunc = () => {
         });
 }
 
-// TODO: render func that calls the render jazz
-
+// writefile func that writes the output of the render func to an html file
+writeFile = (fileName, directory, data) => {
+    if (!fs.existsSync(directory)) {
+        fs.mkdirSync(directory);
+    }
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log('Success!')); 
+}
 
 init();
