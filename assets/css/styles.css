@@ -1,8 +1,28 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.team-area {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.employee-card {
+    margin: 10px;
+    box-shadow: 3px 3px 10px black;
+    border-radius: 10px;
+    background-color: lightgrey;
+    border: none;
+}
+
 .team-heading,
-.manager-header,
-.engineer-header,
-.intern-header {
+.card-header {
     color: white;
+}
+
+.card-header:first-child {
+    border-radius: 10px 10px 0 0;
+    border: none;
 }
 
 .team-heading {
@@ -13,6 +33,7 @@
 .manager-header {
     background: #360033;
     background: linear-gradient(to right, #0b8793, #360033);
+    
 }
 
 .engineer-header {
@@ -23,8 +44,4 @@
 .intern-header {
     background: #D38312;
     background: linear-gradient(to right, #A83279, #D38312);
-}
-
-.card-body {
-    background-color: darkgrey;
 }
