@@ -67,15 +67,17 @@ In this project i have learnt how to use node.js further, inparticular the inqui
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Tests](#tests)
 - [Credits](#credits)
 - [License](#license)
 
 ## Installation
 
 Install folder structure as is, into a root directory.
-Then follow the install requirements in the package.json (npm install)
-* you will need to install inquirer v8.0.0 using npm (npm install --save inquirer@8.0.0)
-* you will need to install jest using npm (npm install jest --save)
+Then follow the install requirements in the package.json `npm install`
+If you don't want to use `npm install` then run the following for individual packages:
+* you will need to install inquirer v8.0.0 using npm `npm install inquirer@8.0.0`
+* you will need to install jest using npm `npm install jest --dev`
 
 ## Usage
 *[Video](https://drive.google.com/file/d/1qbkhW0fhhHwDLrdS7PB882pfe2xnjXdD/view)* of how to use the generator
@@ -90,6 +92,13 @@ Once completed, you get presented with the menu screen, if you select the first 
 * Finish building the team: Take the information from the Manager, Engineers and Interns and dynamically build an HTML page with the information in.
 
 The html file will be outputted to your ./output/team.html
+
+## Tests
+![Team profile Tests Screenshot](./assets/images/tests.png)
+
+This application has a series of tests, for each class that has been created, ensure that all these tests pass for proper functionality.
+
+Run `npm run test` to run the tests.
 
 ## Credits
 
