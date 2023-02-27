@@ -24,7 +24,8 @@ init = () => {
 // reusable questions
 const nameQ = {
     type: 'input',
-    message: 'What is your name?',
+    message: `===========================
+? What is your name?`,
     name: 'name',
     validate(name) {
         if(!/[a-zA-Z]+$/.test(name)) {
@@ -97,7 +98,8 @@ const schoolQ = {
 
 const menuQ = {
     type: 'list',
-    message: 'What would you like to do next?',
+    message: `===============================
+What would you like to do next?`,
     name: 'option',
     choices: [
         "Add an Engineer",
