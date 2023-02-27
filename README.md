@@ -79,7 +79,7 @@ Then follow the install requirements in the package.json (npm install)
 
 ## Usage
 --------------------UPDATE-----------------------
-*[Video](https://drive.google.com/file/d/1UvETX3JgLTmOJdxkCsixvBAWy5tqGC89/view)* of how to use the generator
+*[Video](https://drive.google.com/file/d/1qbkhW0fhhHwDLrdS7PB882pfe2xnjXdD/view)* of how to use the generator
 <br>
 <br>
 
