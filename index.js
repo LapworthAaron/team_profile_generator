@@ -10,12 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
-// TODO: render
-// TODO: dynamic instantiation object names
-
-let team = [];
-
 // init function that calls manager func
 init = () => {
     managerFunc();
@@ -108,6 +102,8 @@ What would you like to do next?`,
     ]
 };
 
+let team = [];
+
 // manager func that calls inquirer then calls holding menu
 managerFunc = () => {
     inquirer
@@ -159,11 +155,16 @@ internFunc = () => {
         });
 }
 
+// check if output folder exists and create if not
+checkFolder = (dir) => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    } 
+}
+
 // writefile func that writes the output of the render func to an html file
 writeFile = (fileName, directory, data) => {
-    if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory);
-    }
+    checkFolder(directory);
     fs.writeFile(fileName, data, (err) =>
     err ? console.error(err) : console.log('Success!')); 
 }
